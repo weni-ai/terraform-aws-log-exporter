@@ -112,6 +112,9 @@ resource "aws_lambda_function" "log_exporter" {
       AWS_ACCOUNT = data.aws_caller_identity.current.account_id
     }
   }
+  tracing_config {
+     mode = "Active"
+  }
 }
 
 resource "aws_cloudwatch_event_rule" "log_exporter" {
